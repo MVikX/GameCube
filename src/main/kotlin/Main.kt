@@ -1,5 +1,9 @@
 package org.example
 
+import javafx.application.Application
+
+//02.02.2025
+
 fun main() {
-    println("Hello World!")
+    Application.launch(Game::class.java)
 }

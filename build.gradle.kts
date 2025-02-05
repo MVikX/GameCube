@@ -1,21 +1,33 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "1.9.22"
+    id("application")
+    id("org.openjfx.javafxplugin") version "0.1.0"
+    id("com.github.johnrengelman.shadow") version "8.1.1" //shadow plugin
 }
-
-group = "org.example"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
+javafx {
+    version = "23.0.2"
+    modules = listOf(
+        "javafx.controls",
+    )
 }
 
-tasks.test {
-    useJUnitPlatform()
+dependencies {
+    implementation(kotlin("stdlib"))
+
+    //kotlin-stdlib
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
 }
+
+//основной класс
+application {
+    mainClass.set("MainKt")
+}
+
 kotlin {
     jvmToolchain(21)
 }
